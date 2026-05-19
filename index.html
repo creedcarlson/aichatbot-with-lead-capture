@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Climate Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset & Theme Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #090d16;        /* Deep Space Midnight */
+            --bg-card: #131a2a;        /* Dark Navy for Cards */
+            
+            /* Temperature Palette */
+            --warm-orange: #ff6b35;    /* Heat / Furnace */
+            --warm-hover: #ff8552;
+            --cool-teal: #00b4d8;      /* Cool / AC */
+            --cool-hover: #90e0ef;
+            
+            --text-main: #ffffff;      
+            --text-muted: #7f8c9d;     
+            --font-display: 'Syne', sans-serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.05) 0%, transparent 40%);
+        }
+
+        /* Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            width: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--cool-teal);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.phone {
+            color: var(--text-main);
+        }
+
+        nav a.phone {
+            font-weight: 600;
+        }
+
+        /* Hero Container Layout */
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            padding: 4rem;
+            align-items: center;
+            flex-grow: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Left Column Content */
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .badge {
+            align-self: flex-start;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-muted);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .hero-left h1 {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        /* Color-coded lettering split */
+        .txt-warm { color: var(--warm-orange); }
+        .txt-cool { color: var(--cool-teal); }
+        .txt-white { color: var(--text-main); } /* Updated for "flow" */
+
+        .hero-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-bottom: 1rem;
+        }
+
+        .cta-group {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background-color: var(--warm-orange);
+            color: var(--bg-dark);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--warm-hover);
+        }
+
+        .btn-secondary {
+            color: var(--cool-teal);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            color: var(--cool-hover);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            gap: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--text-main);
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+
+        /* Right Column Services Card */
+        .services-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .emergency-tag {
+            position: absolute;
+            top: -12px;
+            right: 24px;
+            background-color: #ff4757;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .services-card h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .service-item {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 1.2rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .service-item.cool-item:hover { border-color: rgba(0, 180, 216, 0.4); transform: translateX(5px); }
+        .service-item.warm-item:hover { border-color: rgba(255, 107, 53, 0.4); transform: translateX(5px); }
+        .service-item.neutral-item:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateX(5px); }
+
+        .service-info { display: flex; align-items: center; gap: 1rem; }
+        .service-icon { font-size: 1.2rem; }
+        .service-name { font-weight: 500; font-size: 0.95rem; }
+        .status-badge { color: #2ed573; font-size: 0.8rem; font-weight: 500; }
+
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; gap: 3rem; padding: 2rem; }
+            header { padding: 2rem; }
+            .hero-left h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">VERTEX <span>HVAC</span></div>
+        <nav>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="tel:8165550192" class="phone">(816) 555-0192</a>
+        </nav>
+    </header>
+
+    <main class="hero-container">
+        <section class="hero-left">
+            <div class="badge">Kansas City's Trusted Team</div>
+            <h1>
+                <span class="txt-warm">Heat</span>, 
+                <span class="txt-cool">cool</span> & 
+                <span class="txt-white">flow</span>.<br>
+                <span>Done right.</span>
+            </h1>
+            <p class="hero-description">
+                Vertex HVAC & Plumbing has served the Kansas city metro for over 20 years. Licensed, insured, and available for emergency calls 24/7.
+            </p>
+            
+            <div class="cta-group">
+                <a href="#" class="btn-primary">Book a Service Call</a>
+                <a href="#" class="btn-secondary">Call us now &rarr;</a>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Years In Business</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4,500+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9★</h3>
+                    <p>Google Rating</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-card">
+            <div class="emergency-tag">24/7 Emergency</div>
+            <h2>Common Services</h2>
+            
+            <div class="service-list">
+                <div class="service-item cool-item">
+                    <div class="service-info">
+                        <span class="service-icon">❄️</span>
+                        <span class="service-name">AC Repair & Maintenance</span>
+                    </div>
+                    <span class="status-badge">Available</span>
+                </div>
+
+                <div class="service-item warm-item">
+                    <div class="service-info">
+                        <span class="service-icon">🔥</span>
+                        <span class="service-name">Furnace Installation</span>
+                    </div>
+                    <span class="status-badge">Available</span>
+                </div>
+
+                <div class="service-item warm-item">
+                    <div class="service-info">
+                        <span class="service-icon">🚰</span>
+                        <span class="service-name">Water Heater Replacement</span>
+                    </div>
+                    <span class="status-badge">Available</span>
+                </div>
+
+                <div class="service-item neutral-item">
+                    <div class="service-info">
+                        <span class="service-icon">🧹</span>
+                        <span class="service-name">Drain Clearing</span>
+                    </div>
+                    <span class="status-badge">Available</span>
+                </div>
+
+                <div class="service-item cool-item">
+                    <div class="service-info">
+                        <span class="service-icon">🔧</span>
+                        <span class="service-name">HVAC System Tune-Up</span>
+                    </div>
+                    <span class="status-badge">Available</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="widget.js" defer></script>
+
+</body>
+</html>
