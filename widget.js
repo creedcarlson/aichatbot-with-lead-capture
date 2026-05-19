@@ -29,7 +29,7 @@
   /* ── CONFIG ─────────────────────────────────────────────────────────────── */
   const raw = window.ChatWidgetConfig || {};
   const C = {
-    webhookUrl:    raw.webhookUrl    || 'https://n8n.srv1666459.hstgr.cloud/webhook/chatbot',
+    webhookUrl:    raw.webhookUrl    || 'https://n8n.srv1666459.hstgr.cloud/webhook/chatbot-with-webhook',
     businessName:  raw.businessName  || 'Assistant',
     agentName:     raw.agentName     || (raw.businessName ? raw.businessName + ' Assistant' : 'AI Assistant'),
     primaryColor:  raw.primaryColor  || '#6366f1',
