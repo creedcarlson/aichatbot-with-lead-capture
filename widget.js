@@ -6,7 +6,7 @@
  * EMBED ON ANY WEBSITE:
  *   <script>
  *     window.ChatWidgetConfig = {
- *       webhookUrl:    'https://n8n.srv1666459.hstgr.cloud/webhook/chatbot',
+ *       webhookUrl:    'https://n8n.srv1666459.hstgr.cloud/webhook/chatbot-with-webhook',
  *       businessName:  'Vertex HVAC Services',
  *       agentName:     'Vertex HVAC Assistant',
  *       primaryColor:  '#f05a28',
