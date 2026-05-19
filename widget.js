@@ -7,8 +7,8 @@
  *   <script>
  *     window.ChatWidgetConfig = {
  *       webhookUrl:    'https://n8n.srv1666459.hstgr.cloud/webhook/chatbot',
- *       businessName:  'Smith HVAC Services',
- *       agentName:     'Smith HVAC Assistant',
+ *       businessName:  'Vertex HVAC Services',
+ *       agentName:     'Vertex HVAC Assistant',
  *       primaryColor:  '#f05a28',
  *       greeting:      'Hi! How can I help you today?',
  *       quickReplies:  ['What are your hours?', 'Book an appointment'],
