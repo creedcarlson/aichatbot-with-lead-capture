@@ -34,7 +34,13 @@
     agentName:     raw.agentName     || (raw.businessName ? raw.businessName + ' Assistant' : 'AI Assistant'),
     primaryColor:  raw.primaryColor  || '#6366f1',
     greeting:      raw.greeting      || 'Hi! How can I help you today?',
-    quickReplies:  Array.isArray(raw.quickReplies) ? raw.quickReplies : [],
+    quickReplies:  Array.isArray(raw.quickReplies) && raw.quickReplies.length > 0 
+      ? raw.quickReplies 
+      : [
+          "What are your hours of operation?",
+          "How do I schedule an appointment?",
+          "Do you service my area?"
+        ],
     position:      raw.position      || 'bottom-right',
     poweredBy:     raw.poweredBy     !== undefined ? !!raw.poweredBy : true,
     poweredByText: raw.poweredByText || 'Creed AI',
