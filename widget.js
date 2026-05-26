@@ -4,23 +4,23 @@
  * Configure via window.ChatWidgetConfig before loading this script.
  *
  * EMBED ON ANY WEBSITE:
- *   <script>
- *     window.ChatWidgetConfig = {
- *       webhookUrl:    'https://n8n.srv1666459.hstgr.cloud/webhook/chatbot-with-webhook',
- *       businessName:  'Vertex HVAC Services',
- *       agentName:     'Vertex HVAC Assistant',
- *       primaryColor:  '#f05a28',
- *       greeting:      'Hi! How can I help you today?',
- *       quickReplies:  ['What are your hours?', 'Book an appointment'],
- *       position:      'bottom-right',
- *       poweredBy:     true,
- *       poweredByText: 'YourBrand AI',
- *       poweredByUrl:  'https://yourbrand.com',
- *       avatarEmoji:   '🔧',
- *       placeholder:   'Type a message...'
- *     };
- *   </script>
- *   <script src="widget.js"></script>
+ * <script>
+ * window.ChatWidgetConfig = {
+ * webhookUrl:    'https://n8n.srv1666459.hstgr.cloud/webhook/chatbot-with-webhook',
+ * businessName:  'Vertex HVAC Services',
+ * agentName:     'Vertex HVAC Assistant',
+ * primaryColor:  '#f05a28',
+ * greeting:      'Hi! How can I help you today?',
+ * quickReplies:  ['What are your hours?', 'Book an appointment'],
+ * position:      'bottom-right',
+ * poweredBy:     true,
+ * poweredByText: 'YourBrand AI',
+ * poweredByUrl:  'https://yourbrand.com',
+ * avatarEmoji:   '🔧',
+ * placeholder:   'Type a message...'
+ * };
+ * </script>
+ * <script src="widget.js"></script>
  */
 
 (function () {
@@ -140,7 +140,7 @@
 .cw-launcher.open .cw-pulse { opacity: 0; }
 @keyframes cw-pulse {
   0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
-  60%     { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+  60%      { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
 }
 
 /* ── WINDOW ── */
@@ -229,7 +229,7 @@
 }
 @keyframes cw-blink {
   0%,100% { opacity: 1; }
-  50%     { opacity: 0.5; }
+  50%      { opacity: 0.5; }
 }
 
 /* ── MESSAGES ── */
@@ -271,7 +271,7 @@
   background: ${C.primaryColor};
   color: white;
   border-bottom-right-radius: 4px;
-  box-shadow: 0 2px 8px ${rgba(0.3)};
+  box-shadow: 0 2px 8px ${rgba(0.35)};
 }
 .cw-msg.bot .cw-bubble {
   background: #161b22;
@@ -314,7 +314,7 @@
 .cw-dot:nth-child(3) { animation-delay: 0.36s; }
 @keyframes cw-bounce {
   0%,80%,100% { transform: translateY(0); opacity: 0.4; }
-  40%         { transform: translateY(-6px); opacity: 1; }
+  40%          { transform: translateY(-6px); opacity: 1; }
 }
 
 /* ── QUICK REPLIES ── */
@@ -499,6 +499,7 @@
     const qrWrap   = document.getElementById('cw-quick-replies');
     const input    = document.getElementById('cw-input');
     const sendBtn  = document.getElementById('cw-send');
+    const pageCont = document.getElementById('page-content');
 
     // ── Toggle open/close ──
     launcher.addEventListener('click', function () {
@@ -506,6 +507,11 @@
       launcher.classList.toggle('open', isOpen);
       launcher.setAttribute('aria-expanded', isOpen);
       win.classList.toggle('open', isOpen);
+
+      // Toggle background blur on index.html container
+      if (pageCont) {
+        pageCont.classList.toggle('chat-blurred', isOpen);
+      }
 
       if (isOpen && msgList.children.length === 0) {
         addMsg('bot', C.greeting);
