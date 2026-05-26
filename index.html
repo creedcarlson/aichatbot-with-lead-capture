@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        /* Global Reset & Theme Variables */
         * {
             margin: 0;
             padding: 0;
@@ -16,13 +15,12 @@
         }
 
         :root {
-            --bg-dark: #090d16;        /* Deep Space Midnight */
-            --bg-card: #131a2a;        /* Dark Navy for Cards */
+            --bg-dark: #090d16;        
+            --bg-card: #131a2a;        
             
-            /* Temperature Palette */
-            --warm-orange: #ff6b35;    /* Heat / Furnace */
+            --warm-orange: #ff6b35;    
             --warm-hover: #ff8552;
-            --cool-teal: #00b4d8;      /* Cool / AC */
+            --cool-teal: #00b4d8;      
             --cool-hover: #90e0ef;
             
             --text-main: #ffffff;      
@@ -44,7 +42,20 @@
                 radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.05) 0%, transparent 40%);
         }
 
-        /* Navigation Header */
+        #page-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            width: 100%;
+            transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+            will-change: filter;
+        }
+
+        #page-content.chat-blurred {
+            filter: blur(8px);
+            pointer-events: none; 
+        }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -80,7 +91,6 @@
             font-weight: 600;
         }
 
-        /* Hero Container Layout */
         .hero-container {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -92,7 +102,6 @@
             margin: 0 auto;
         }
 
-        /* Left Column Content */
         .hero-left {
             display: flex;
             flex-direction: column;
@@ -118,10 +127,9 @@
             font-weight: 800;
         }
 
-        /* Color-coded lettering split */
         .txt-warm { color: var(--warm-orange); }
         .txt-cool { color: var(--cool-teal); }
-        .txt-white { color: var(--text-main); } /* Updated for "flow" */
+        .txt-white { color: var(--text-main); } 
 
         .hero-description {
             color: var(--text-muted);
@@ -166,7 +174,6 @@
             color: var(--cool-hover);
         }
 
-        /* Stats Section */
         .stats {
             display: flex;
             gap: 3rem;
@@ -188,7 +195,6 @@
             margin-top: 0.25rem;
         }
 
-        /* Right Column Services Card */
         .services-card {
             background-color: var(--bg-card);
             border-radius: 16px;
@@ -254,97 +260,99 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">VERTEX <span>HVAC</span></div>
-        <nav>
-            <a href="#">Services</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="tel:8165550192" class="phone">(816) 555-0192</a>
-        </nav>
-    </header>
+    <div id="page-content">
+        <header>
+            <div class="logo">VERTEX <span>HVAC</span></div>
+            <nav>
+                <a href="#">Services</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="tel:8165550192" class="phone">(816) 555-0192</a>
+            </nav>
+        </header>
 
-    <main class="hero-container">
-        <section class="hero-left">
-            <div class="badge">Kansas City's Trusted Team</div>
-            <h1>
-                <span class="txt-warm">Heat</span>, 
-                <span class="txt-cool">cool</span> & 
-                <span class="txt-white">flow</span>.<br>
-                <span>Done right.</span>
-            </h1>
-            <p class="hero-description">
-                Vertex HVAC & Plumbing has served the Kansas city metro for over 20 years. Licensed, insured, and available for emergency calls 24/7.
-            </p>
-            
-            <div class="cta-group">
-                <a href="#" class="btn-primary">Book a Service Call</a>
-                <a href="#" class="btn-secondary">Call us now &rarr;</a>
-            </div>
+        <main class="hero-container">
+            <section class="hero-left">
+                <div class="badge">Kansas City's Trusted Team</div>
+                <h1>
+                    <span class="txt-warm">Heat</span>, 
+                    <span class="txt-cool">cool</span> & 
+                    <span class="txt-white">flow</span>.<br>
+                    <span>Done right.</span>
+                </h1>
+                <p class="hero-description">
+                    Vertex HVAC & Plumbing has served the Kansas city metro for over 20 years. Licensed, insured, and available for emergency calls 24/7.
+                </p>
+                
+                <div class="cta-group">
+                    <a href="#" class="btn-primary">Book a Service Call</a>
+                    <a href="#" class="btn-secondary">Call us now &rarr;</a>
+                </div>
 
-            <div class="stats">
-                <div class="stat-item">
-                    <h3>20+</h3>
-                    <p>Years In Business</p>
-                </div>
-                <div class="stat-item">
-                    <h3>4,500+</h3>
-                    <p>Happy Customers</p>
-                </div>
-                <div class="stat-item">
-                    <h3>4.9★</h3>
-                    <p>Google Rating</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="services-card">
-            <div class="emergency-tag">24/7 Emergency</div>
-            <h2>Common Services</h2>
-            
-            <div class="service-list">
-                <div class="service-item cool-item">
-                    <div class="service-info">
-                        <span class="service-icon">❄️</span>
-                        <span class="service-name">AC Repair & Maintenance</span>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>20+</h3>
+                        <p>Years In Business</p>
                     </div>
-                    <span class="status-badge">Available</span>
-                </div>
-
-                <div class="service-item warm-item">
-                    <div class="service-info">
-                        <span class="service-icon">🔥</span>
-                        <span class="service-name">Furnace Installation</span>
+                    <div class="stat-item">
+                        <h3>4,500+</h3>
+                        <p>Happy Customers</p>
                     </div>
-                    <span class="status-badge">Available</span>
-                </div>
-
-                <div class="service-item warm-item">
-                    <div class="service-info">
-                        <span class="service-icon">🚰</span>
-                        <span class="service-name">Water Heater Replacement</span>
+                    <div class="stat-item">
+                        <h3>4.9★</h3>
+                        <p>Google Rating</p>
                     </div>
-                    <span class="status-badge">Available</span>
                 </div>
+            </section>
 
-                <div class="service-item neutral-item">
-                    <div class="service-info">
-                        <span class="service-icon">🧹</span>
-                        <span class="service-name">Drain Clearing</span>
+            <section class="services-card">
+                <div class="emergency-tag">24/7 Emergency</div>
+                <h2>Common Services</h2>
+                
+                <div class="service-list">
+                    <div class="service-item cool-item">
+                        <div class="service-info">
+                            <span class="service-icon">❄️</span>
+                            <span class="service-name">AC Repair & Maintenance</span>
+                        </div>
+                        <span class="status-badge">Available</span>
                     </div>
-                    <span class="status-badge">Available</span>
-                </div>
 
-                <div class="service-item cool-item">
-                    <div class="service-info">
-                        <span class="service-icon">🔧</span>
-                        <span class="service-name">HVAC System Tune-Up</span>
+                    <div class="service-item warm-item">
+                        <div class="service-info">
+                            <span class="service-icon">🔥</span>
+                            <span class="service-name">Furnace Installation</span>
+                        </div>
+                        <span class="status-badge">Available</span>
                     </div>
-                    <span class="status-badge">Available</span>
+
+                    <div class="service-item warm-item">
+                        <div class="service-info">
+                            <span class="service-icon">🚰</span>
+                            <span class="service-name">Water Heater Replacement</span>
+                        </div>
+                        <span class="status-badge">Available</span>
+                    </div>
+
+                    <div class="service-item neutral-item">
+                        <div class="service-info">
+                            <span class="service-icon">🧹</span>
+                            <span class="service-name">Drain Clearing</span>
+                        </div>
+                        <span class="status-badge">Available</span>
+                    </div>
+
+                    <div class="service-item cool-item">
+                        <div class="service-info">
+                            <span class="service-icon">🔧</span>
+                            <span class="service-name">HVAC System Tune-Up</span>
+                        </div>
+                        <span class="status-badge">Available</span>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
     <script src="widget.js" defer></script>
 
